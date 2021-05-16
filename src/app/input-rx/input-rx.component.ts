@@ -6,8 +6,18 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import { fromEvent } from 'rxjs';
-import { concatMap, mapTo, takeUntil, takeWhile, tap } from 'rxjs/operators';
+import { from, fromEvent } from 'rxjs';
+import {
+  concatMap,
+  mapTo,
+  takeUntil,
+  takeWhile,
+  tap,
+  debounceTime,
+  map
+} from 'rxjs/operators';
+
+import $ from 'jquery';
 
 @Component({
   selector: 'app-input-rx',
@@ -17,6 +27,11 @@ import { concatMap, mapTo, takeUntil, takeWhile, tap } from 'rxjs/operators';
 export class InputRxComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
-  test = function(e) {};
+  ngOnInit() {
+    var elem = $('.auto-complete');
+    var source = fromEvent(elem, 'input');
+    var subscription = source.subscribe(function(e) {
+      console.log($(e));
+    });
+  }
 }
