@@ -31,7 +31,7 @@ export class InputRxComponent implements OnInit {
     var elem = $('.auto-complete');
     var source = fromEvent(elem, 'input');
     var subscription = source.subscribe(function(e) {
-      console.log($(e));
+      console.log(e);
     });
   }
 }
