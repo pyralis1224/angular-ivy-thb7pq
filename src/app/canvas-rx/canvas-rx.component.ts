@@ -64,5 +64,4 @@ export class CanvasRxComponent implements OnInit, AfterViewInit {
       )
     );
   };
-  test = function(e) {};
 }

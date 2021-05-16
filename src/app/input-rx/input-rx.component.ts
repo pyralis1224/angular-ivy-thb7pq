@@ -18,4 +18,5 @@ export class InputRxComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  test = function(e) {};
 }
